@@ -7,6 +7,7 @@ def get_salary(saraly_str):
     :return:
     '''
     saraly_li=saraly_str.strip().replace('k','').replace('K','').split('-')
+    # print(saraly_str)
     area = int(saraly_li[1])-int(saraly_li[0])
     return int(saraly_li[0])+0.5*area
 
@@ -64,7 +65,7 @@ def get_education_salary_distribute(df,pathname,by='education'):
     plt.savefig(pathname,dpi=400)
 
 def main():
-    data = pd.read_csv('./data/LagouPostion.csv', encoding='gb18030')
+    data = pd.read_csv('/home/aallen/git/3.3数据分析/数据阶段/3.22拉勾网数据分析/data/LagouPostion.csv',encoding='gb18030')
     data = data.drop_duplicates()  # 去重
     data = data[data['jobNature'] == '全职']  ##提取‘全职’的招聘信息
     data['money']=data['salary'].apply(get_salary)#提取工资信息

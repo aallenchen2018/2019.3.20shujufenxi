@@ -51,7 +51,7 @@ def get_word_cloud(word_dict,pathname,max_font_size=3000):
     :return:
     '''
     plt.figure(figsize=(6,6))
-    backgroud_img = plt.imread('./data/timg.jpg')#读取背景图
+    backgroud_img = plt.imread('/home/aallen/git/3.3数据分析/数据阶段/3.22拉勾网数据分析/data/timg.jpg')#读取背景图
     #声明词云对象
     wc = WordCloud(
         background_color='white',#背景色
@@ -74,9 +74,9 @@ def main():
     get_city_distribute(data['city'],'/home/aallen/git/3.3数据分析/数据阶段/3.22拉勾网数据分析/image/cityneed.png',num=100)#统计城市的频数和频率，并绘图
     # print(data['industryField'].unique())
     data['field']=data['industryField'].str.strip().str.replace('、',',').str.replace(' ',',').str.split(',')
-    
+
     field_dict = get_field_count(data['field'])#统计行业频数
-    get_word_cloud(field_dict,'./image/行业词云.png')#绘制行业词云图
+    get_word_cloud(field_dict,'./image/行业词云1.png')#绘制行业词云图
     #不同工作年限的需求分布
     get_city_distribute(data['workYear'],pathname='./image/工作年限.png')
 
